@@ -116,4 +116,14 @@ export const networkInfo = new Map<number, NetworkInfo>([
       baseAPI: "https://safe-transaction.volta.gnosis.io/api/v1",
     },
   ],
+  [
+    250,
+    {
+      chainID: 250,
+      name: "Fantom",
+      shortName: "ftm",
+      currencySymbol: "FTM",
+      baseAPI: "https://safe.fantom.network/v1/chains/250/",
+    },
+  ],
 ]);
