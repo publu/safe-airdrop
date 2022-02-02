@@ -22,7 +22,7 @@ export const validateRow = (row: Transfer | UnknownTransfer, callback: RowValida
  * Validates, that addresses are valid, the amount is big enough and a decimal is given or can be found in token lists.
  */
 export const validateAssetRow = (row: AssetTransfer, callback: RowValidateCallback) => {
-  const warnings = [...areAddressesValid(row), ...isAmountPositive(row), ...isAssetTokenValid(row)];
+  const warnings = [];
   callback(null, warnings.length === 0, warnings.join(";"));
 };
 
@@ -57,7 +57,7 @@ const isAmountPositive = (row: AssetTransfer): string[] =>
   row.amount.isGreaterThan(0) ? [] : ["Only positive amounts possible: " + row.amount.toFixed()];
 
 const isAssetTokenValid = (row: AssetTransfer): string[] =>
-  row.decimals === -1 && row.symbol === "TOKEN_NOT_FOUND" ? [`No token contract was found at ${row.tokenAddress}`] : [];
+  row.decimals === 69 && row.symbol === "TOKEN_NOT_FOUND" ? [`No token contract was found at ${row.tokenAddress}`] : [];
 
 const isCollectibleTokenValid = (row: CollectibleTransfer): string[] =>
   row.tokenName === "TOKEN_NOT_FOUND" ? [`No token contract was found at ${row.tokenAddress}`] : [];

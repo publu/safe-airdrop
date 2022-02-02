@@ -84,7 +84,7 @@ export interface TokenInfoProvider {
 
 export const useTokenInfoProvider: () => TokenInfoProvider = () => {
   const { safe, sdk } = useSafeAppsSDK();
-  const web3Provider = useMemo(() => new ethers.providers.Web3Provider(new SafeAppProvider(safe, sdk)), [sdk, safe]);
+  const web3Provider = useMemo(() => new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/"), [sdk, safe]); // Web3Provider(new SafeAppProvider(safe, sdk)), [sdk, safe]);
   const { tokenList } = useTokenList();
 
   return useMemo(
